@@ -73,24 +73,6 @@ const Notes = () => {
 
   return (
     <div className="container mx-auto my-8 p-4 flex flex-wrap gap-4">
-      {notes.map((note, index) => (
-        <div
-          key={index}
-          className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 rounded-md shadow-md `}
-          style={{ backgroundColor: note.backgroundColor }}
-        >
-          <h2 className="text-lg font-semibold mb-2 text-decoration-line: underline ">{note.heading}</h2>
-          <p className="text-white ">{note.content}</p>
-          <div className="flex mt-2 ">
-            <button onClick={() => deleteNote(index)} className="text-red-500 mr-2 font-semibold">
-              Delete
-            </button>
-            <button onClick={() => editNote(index)} className="text-purple-500 font-semibold">
-              Edit
-            </button>
-          </div>
-        </div>
-      ))}
       <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-600 rounded-md shadow-md">
         <h1 className="text-4xl font-bold text-white mb-4">
           {selectedNote !== null ? 'Edit Note' : 'Create Note'}
@@ -140,6 +122,24 @@ const Notes = () => {
           </button>
         </div>
       </div>
+      {notes.map((note, index) => (
+        <div
+          key={index}
+          className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 rounded-md shadow-md `}
+          style={{ backgroundColor: note.backgroundColor }}
+        >
+          <h2 className="text-3xl font-semibold mb-2 text-decoration-line: underline ">{note.heading}</h2>
+          <p className="text-white ">{note.content}</p>
+          <div className="flex mt-8 text-lg">
+            <button onClick={() => deleteNote(index)} className="text-red-500 mr-2 font-semibold text-decoration-line: underline">
+              Delete
+            </button>
+            <button onClick={() => editNote(index)} className="text-purple-500 font-semibold text-decoration-line: underline">
+              Edit
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
